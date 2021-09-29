@@ -7,6 +7,8 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
+import java.util.List;
+import java.util.ArrayList;
 
 /** NativeToolboxPlugin */
 public class NativeToolboxPlugin implements FlutterPlugin, MethodCallHandler {
@@ -26,7 +28,11 @@ public class NativeToolboxPlugin implements FlutterPlugin, MethodCallHandler {
   public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
     if (call.method.equals("getPlatformVersion")) {
       result.success("Android " + android.os.Build.VERSION.RELEASE);
-    } else {
+    } else if (call.method.equals("crashApp")) {
+//      List data = new ArrayList();
+//      System.out.println(data.get(0));
+      System.out.println(1/0);
+    }else {
       result.notImplemented();
     }
   }

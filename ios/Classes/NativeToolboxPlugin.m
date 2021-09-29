@@ -12,6 +12,9 @@
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
   if ([@"getPlatformVersion" isEqualToString:call.method]) {
     result([@"iOS " stringByAppendingString:[[UIDevice currentDevice] systemVersion]]);
+  } else if ([@"crashApp" isEqualToString:call.method]) {
+    1/0;
+    return (1);
   } else {
     result(FlutterMethodNotImplemented);
   }
