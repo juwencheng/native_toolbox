@@ -1,5 +1,8 @@
 package com.baiziio.flutter.plugins.native_toolbox;
 
+import android.os.Handler;
+import android.os.Looper;
+
 import androidx.annotation.NonNull;
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
@@ -7,8 +10,6 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
-import java.util.List;
-import java.util.ArrayList;
 
 /** NativeToolboxPlugin */
 public class NativeToolboxPlugin implements FlutterPlugin, MethodCallHandler {
@@ -29,8 +30,18 @@ public class NativeToolboxPlugin implements FlutterPlugin, MethodCallHandler {
     if (call.method.equals("getPlatformVersion")) {
       result.success("Android " + android.os.Build.VERSION.RELEASE);
     } else if (call.method.equals("crashApp")) {
-      List data = null;
-      System.out.println(data.get(0));
+//      List data = null;
+//      System.out.println(data.get(0));
+//      int[] data = null;
+//      data[0] = 1;
+
+      Handler mainHandler = new Handler(Looper.getMainLooper());
+      mainHandler.post(new Runnable() {
+        @Override
+        public void run() {
+          System.out.println(10/0);
+        }
+      });
     }else {
       result.notImplemented();
     }
