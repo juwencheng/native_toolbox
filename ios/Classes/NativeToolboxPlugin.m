@@ -13,8 +13,9 @@
   if ([@"getPlatformVersion" isEqualToString:call.method]) {
     result([@"iOS " stringByAppendingString:[[UIDevice currentDevice] systemVersion]]);
   } else if ([@"crashApp" isEqualToString:call.method]) {
-    1/0;
-    return (1);
+    NSString *key = nil;
+    NSDictionary *dic = @{key: @"key"};
+    result (@1);
   } else {
     result(FlutterMethodNotImplemented);
   }

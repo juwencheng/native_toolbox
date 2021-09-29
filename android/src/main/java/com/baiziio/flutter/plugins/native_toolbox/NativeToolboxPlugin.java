@@ -29,9 +29,8 @@ public class NativeToolboxPlugin implements FlutterPlugin, MethodCallHandler {
     if (call.method.equals("getPlatformVersion")) {
       result.success("Android " + android.os.Build.VERSION.RELEASE);
     } else if (call.method.equals("crashApp")) {
-//      List data = new ArrayList();
-//      System.out.println(data.get(0));
-      System.out.println(1/0);
+      List data = null;
+      System.out.println(data.get(0));
     }else {
       result.notImplemented();
     }
